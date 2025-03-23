@@ -4,12 +4,14 @@ import GaussJordan
 
 Matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
 Vector = [1, 2, 3, 4]
+a = 0
 
 def intComprobacion(digit):
     try:
         float(digit)
         return digit
     except ValueError:
+        print("\033[31mEl valor ingresado no es un número válido\n\033[0m")
         return None
 
 def makeMatrixB():
@@ -46,25 +48,29 @@ def makeMatrix():
     print("Se ha estalecido la matriz A \n ")
     return Matrix
 
-def userChoices(Matrix, Vector):
-    print("Opciones para la resolución del Sistema de Ecuaciones: \n")
+def userChoices(Matrix, Vector, a):
+    print("\nOpciones para la resolución del Sistema de Ecuaciones: \n")
     print(" 1- Factoriación LU \n 2- Método de Jacobí \n 3- Gauss-Jordan")
     print(" 4- Imprimir Matriz \n 5- Reemplazar Matrices del Sistema \n")
+    print(" 6- Salir \n")
     option = input("Introduzca la opción que desee aplicar: ").strip()
     if option == "1":
         LUmethod.FactorizacionLU(Matrix, Vector)
     elif option == "2":
-        None
+        jacobi.SolJacobi()
     elif option == "3":
-        None
+        GaussJordan.SolGaussJordan()
     elif option == "4":
         printMatrix()
     elif option == "5":
         Matrix = makeMatrix()
         Vector = makeMatrixB()
+    elif option == "6":
+        a = 1
     else:
-        print("\nSe ha introducido un valor no contemplado. Intentelo de nuevo \n")
+        print("\033[31m\nSe ha introducido un valor no contemplado. Intentelo de nuevo\n\033[0m")
         userChoices(Matrix, Vector)
+    return a
 
 def printMatrix():
     for i in range(4):
@@ -75,5 +81,6 @@ def printMatrix():
 print("Bienvenido \n ")
 Matrix = makeMatrix()
 Vector = makeMatrixB()
-userChoices(Matrix, Vector)
+while a == 0:
+    a = userChoices(Matrix, Vector, a)
 print("Actividad Finalizada \n")

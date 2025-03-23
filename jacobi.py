@@ -62,6 +62,17 @@ def metodo_jacobi(matriz, vector, tol=1e-10, max_iter=1000):
     print("Advertencia: No se alcanzó la convergencia en el número máximo de iteraciones.")
     return x
 
+def SolJacobi(matriz, vector):
+    try:
+        # Resolver el sistema utilizando el método de Jacobi
+        solucion = metodo_jacobi(matriz, vector)
+        print("\nSolución del sistema por Jacobi:")
+        for i, x in enumerate(solucion):
+            print(f"x{i+1} = {x}")
+
+    except ValueError as e:
+        print(f"Error: {e}")
+
 """ # Ejemplo de uso
 try:
     # Definir la matriz A y el vector b

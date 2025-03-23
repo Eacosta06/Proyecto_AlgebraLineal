@@ -36,6 +36,19 @@ def gauss_jordan_solver(matriz, vector):
     solucion = [matriz[i][n] for i in range(n)]
     return solucion
 
+def SolGaussJordan(matriz, vector):
+    # Resolver el sistema
+    solucion = gauss_jordan_solver(matriz, vector)
+
+    # Imprimir la solución
+    print("Solución del sistema por Gauss-Jordan:")
+    for i, x in enumerate(solucion):
+        print(f"x{i+1} = {x}")
+
+    # Devolver el vector solución
+    print("\nVector solución:")
+    print(solucion)
+
 """ # ************** Ejemplo de uso ***************
 matriz = [
     [4, 0, 0, 0],
