@@ -74,6 +74,34 @@ def resolver_sistema_lu(P, L, U, b):
 
     return x
 
+def FactorizacionLU(matriz, vector):
+    try:
+        # Imprimir la matriz aumentada [A | b]
+        print("\nMatriz aumentada [A | b]:")
+        for i in range(len(matriz)):
+            print(matriz[i] + [vector[i]])
+
+        # Descomposición LU con matriz de permutación
+        P, L, U = descomposicion_lu(matriz)
+        print("\nMatriz de permutación P:")
+        for fila in P:
+            print(fila)
+        print("\nMatriz L:")
+        for fila in L:
+            print(fila)
+        print("\nMatriz U:")
+        for fila in U:
+            print(fila)
+
+        # Resolver el sistema Ax = b
+        solucion = resolver_sistema_lu(P, L, U, vector)
+        print("\nSolución del sistema por LU:")
+        for i, x in enumerate(solucion):
+            print(f"x{i+1} = {x}")
+            
+    except ValueError as e:
+        print(f"Error: {e}") 
+
 """ # **************Ejemplo de uso****************
 try:
     # Definir la matriz A y el vector b
