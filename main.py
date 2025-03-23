@@ -2,7 +2,11 @@ import jacobi
 import LUmethod
 import GaussJordan
 
-Matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+Matrix = [[1, 2, 3, 4],
+          [5, 6, 7, 8], 
+          [9, 10, 11, 12], 
+          [13, 14, 15, 16]]
+
 Vector = [1, 2, 3, 4]
 a = 0
 
@@ -23,6 +27,7 @@ def makeMatrixB():
             d = input("Ingreseel dígito a1"+str(digit)+": ")
             d = intComprobacion(d)
             if d != None:
+                d=float(d)
                 Vector.append(d)
             else:
                 d = None
@@ -41,6 +46,7 @@ def makeMatrix():
                 d = input("Ingrese el dígito a"+str(fila)+str(digit)+": ")
                 d = intComprobacion(d)
                 if d != None:
+                    d=float(d)
                     row.append(d)
                 else:
                     d = None
@@ -57,11 +63,11 @@ def userChoices(Matrix, Vector, a):
     if option == "1":
         LUmethod.FactorizacionLU(Matrix, Vector)
     elif option == "2":
-        jacobi.SolJacobi()
+        jacobi.SolJacobi(Matrix, Vector)
     elif option == "3":
-        GaussJordan.SolGaussJordan()
+        GaussJordan.SolGaussJordan(Matrix, Vector)
     elif option == "4":
-        printMatrix()
+        printMatrix(Matrix, Vector)
     elif option == "5":
         Matrix = makeMatrix()
         Vector = makeMatrixB()
@@ -69,10 +75,10 @@ def userChoices(Matrix, Vector, a):
         a = 1
     else:
         print("\033[31m\nSe ha introducido un valor no contemplado. Intentelo de nuevo\n\033[0m")
-        userChoices(Matrix, Vector)
-    return a
+        return userChoices(Matrix, Vector, a)
+    return Matrix, Vector, a
 
-def printMatrix():
+def printMatrix(Matrix, Vector):
     for i in range(4):
         for j in range(4):
             print(str(Matrix[i][j]), end=" ")
@@ -81,6 +87,7 @@ def printMatrix():
 print("Bienvenido \n ")
 Matrix = makeMatrix()
 Vector = makeMatrixB()
+a = 0
 while a == 0:
-    a = userChoices(Matrix, Vector, a)
+    Matrix, Vector, a = userChoices(Matrix, Vector, a)
 print("Actividad Finalizada \n")
