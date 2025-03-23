@@ -74,7 +74,7 @@ def resolver_sistema_lu(P, L, U, b):
 
     return x
 
-# **************Ejemplo de uso****************
+""" # **************Ejemplo de uso****************
 try:
     # Definir la matriz A y el vector b
     matriz = [
@@ -114,4 +114,4 @@ try:
         print(f"x{i+1} = {x}")
 
 except ValueError as e:
-    print(f"Error: {e}")
+    print(f"Error: {e}") """

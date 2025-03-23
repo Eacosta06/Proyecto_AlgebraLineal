@@ -36,7 +36,7 @@ def gauss_jordan_solver(matriz, vector):
     solucion = [matriz[i][n] for i in range(n)]
     return solucion
 
-# ************** Ejemplo de uso ***************
+""" # ************** Ejemplo de uso ***************
 matriz = [
     [4, 0, 0, 0],
     [0, 3, 0, 0],
@@ -56,4 +56,4 @@ for i, x in enumerate(solucion):
 
 # Devolver el vector solución
 print("\nVector solución:")
-print(solucion)
+print(solucion) """

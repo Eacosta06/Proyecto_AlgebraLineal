@@ -62,7 +62,7 @@ def metodo_jacobi(matriz, vector, tol=1e-10, max_iter=1000):
     print("Advertencia: No se alcanzó la convergencia en el número máximo de iteraciones.")
     return x
 
-# Ejemplo de uso
+""" # Ejemplo de uso
 try:
     # Definir la matriz A y el vector b
     matriz = [
@@ -80,4 +80,4 @@ try:
         print(f"x{i+1} = {x}")
 
 except ValueError as e:
-    print(f"Error: {e}")
+    print(f"Error: {e}") """
