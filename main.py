@@ -1,3 +1,7 @@
+import jacobi
+import LUmethod
+import GaussJordan
+
 Matrix = [()]
 
 def intComprobacion(digit):
