@@ -102,6 +102,9 @@ def userChoices(Matrix, Vector, a):
     elif option == "5":
         Matrix = makeMatrix()
         Vector = makeMatrixB()
+        b =1
+        while b == 1:
+            Matrix, Vector, b = matrixComprobacion(Matrix, Vector, b)
     elif option == "6":
         a = 1
     else:
