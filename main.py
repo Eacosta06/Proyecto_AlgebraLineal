@@ -26,7 +26,7 @@ def makeMatrixB():
     for digit in range(4):
         d = None
         while d == None:
-            d = input("Ingreseel dígito a1"+str(digit)+": ").strip()
+            d = input("Ingreseel dígito a1"+str(digit+1)+": ").strip()
             d = intComprobacion(d)
             if d != None:
                 d=float(d)
@@ -42,11 +42,11 @@ def makeMatrix():
     Matrix = []
     for fila in range(4):
         row = []
-        print("Fila "+str(fila))
+        print("Fila "+str(fila+1))
         for digit in range(4):
             d = None
             while d == None:
-                d = input("Ingrese el dígito a"+str(fila)+str(digit)+": ").strip()
+                d = input("Ingrese el dígito a"+str(fila+1)+str(digit+1)+": ").strip()
                 d = intComprobacion(d)
                 if d != None:
                     d=float(d)
