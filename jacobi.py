@@ -1,3 +1,5 @@
+import main
+
 def es_diagonalmente_dominante(matriz):
     """
     Verifica si una matriz es estrictamente diagonalmente dominante.
@@ -25,7 +27,7 @@ def reordenar_filas(matriz, vector):
         if max_row != i:
             matriz[i], matriz[max_row] = matriz[max_row], matriz[i]
             vector[i], vector[max_row] = vector[max_row], vector[i]
-    
+    main.printMatrix(matriz, vector)
     return matriz, vector
 
 def metodo_jacobi(matriz, vector, tol=1e-10, max_iter=1000):
