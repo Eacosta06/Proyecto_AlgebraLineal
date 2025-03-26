@@ -1,3 +1,5 @@
+import main
+
 def descomposicion_lu(matriz):
     n = len(matriz)
     L = [[0.0] * n for _ in range(n)]  # Matriz triangular inferior
@@ -38,6 +40,7 @@ def descomposicion_lu(matriz):
             P[i], P[max_row] = P[max_row], P[i]
             if i > 0:
                 L[i][:i], L[max_row][:i] = L[max_row][:i], L[i][:i]
+        
 
         # Verificar si el pivote es cero (sistema singular)
         if A[i][i] == 0:
@@ -61,7 +64,7 @@ def resolver_sistema_lu(P, L, U, b):
 
     # Aplicar la permutación al vector b
     b_permutado = [sum(P[i][j] * b[j] for j in range(n)) for i in range(n)]
-
+    
     # Resolver Ly = b_permutado (sustitución hacia adelante)
     for i in range(n):
         suma = sum(L[i][j] * y[j] for j in range(i))
