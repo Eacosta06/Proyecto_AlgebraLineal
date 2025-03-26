@@ -119,6 +119,8 @@ def printMatrix(Matrix, Vector):
             print(str(Matrix[i][j]), end="  ")
         print("| "+str(Vector[i]))
 
+
+
 #  CÓDIGO DE EJECUCIÓN DEL PROGRAMA
 print("Bienvenido \n ")
 Matrix = makeMatrix()
